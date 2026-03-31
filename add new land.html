@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Add New Farm Plot | Fertile Canvas</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e2e3df",
+                        "on-primary-container": "#cbffc2",
+                        "on-primary": "#ffffff",
+                        "surface-bright": "#faf9f5",
+                        "on-error-container": "#93000a",
+                        "surface-container-lowest": "#ffffff",
+                        "primary-container": "#3a7b3a",
+                        "surface-container-low": "#f4f4f0",
+                        "secondary-container": "#fed3c7",
+                        "background": "#faf9f5",
+                        "on-tertiary-container": "#e9f2ff",
+                        "error": "#ba1a1a",
+                        "surface-tint": "#2a6b2c",
+                        "on-surface-variant": "#40493d",
+                        "on-secondary-container": "#795950",
+                        "on-primary-fixed": "#002203",
+                        "secondary-fixed-dim": "#e7bdb1",
+                        "on-tertiary-fixed": "#001d34",
+                        "inverse-on-surface": "#f1f1ed",
+                        "on-tertiary-fixed-variant": "#004a78",
+                        "surface-container": "#eeeeea",
+                        "secondary": "#77574d",
+                        "tertiary": "#00598f",
+                        "secondary-fixed": "#ffdbd0",
+                        "on-surface": "#1a1c1a",
+                        "surface-dim": "#dadad6",
+                        "on-secondary-fixed": "#2c160e",
+                        "surface": "#faf9f5",
+                        "primary": "#206223",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#cfe5ff",
+                        "surface-variant": "#e2e3df",
+                        "outline": "#707a6c",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed-dim": "#99cbff",
+                        "primary-fixed": "#acf4a4",
+                        "on-error": "#ffffff",
+                        "inverse-surface": "#2f312e",
+                        "tertiary-container": "#0072b6",
+                        "primary-fixed-dim": "#91d78a",
+                        "inverse-primary": "#91d78a",
+                        "on-secondary-fixed-variant": "#5d4037",
+                        "outline-variant": "#bfcaba",
+                        "surface-container-high": "#e8e8e4",
+                        "on-background": "#1a1c1a",
+                        "on-primary-fixed-variant": "#0c5216"
+                    },
+                    fontFamily: {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #bfcaba; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #707a6c; }
+    </style>
+</head>
+<body class="bg-surface font-body text-on-surface overflow-hidden">
+<!-- Header using predicted component TopNavBar style from {{DATA:COMPONENTS:COMPONENTS_16}} -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-[#faf9f5] h-16 flex items-center px-8 border-b border-[#f4f4f0]">
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-[#f4f4f0] rounded-full transition-colors active:scale-95 duration-150">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<h1 class="text-2xl font-black text-[#206223] tracking-tighter uppercase font-headline">Fertile Canvas</h1>
+<div class="h-4 w-[1px] bg-outline-variant mx-2"></div>
+<span class="text-[#40493d] font-bold text-sm tracking-tight font-headline uppercase">New Land Entry</span>
+</div>
+</header>
+<main class="pt-16 h-screen flex flex-col md:flex-row">
+<!-- Left Column: Interactive Map Placeholder -->
+<section class="flex-1 relative bg-surface-container-low min-h-[400px] md:min-h-0">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover" data-alt="top-down satellite view of lush green agricultural grid in Sri Lanka with varying shades of emerald and earthy browns" data-location="Kandy" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXRzEmJAvHy_8qndgRz0j4YiZY5K4O81wCqqPqkqWld3KvekokWjwuN_dBEVi3CClWjehR4Pi6XHJLMoZsNueGeAwWkzb50UUnbWNU9pGgXUPnMs2Zm6kPLDLjLUm_9gHF3XJvXzrYBImpchoOtvSleNYSgo4J1oEVohSOiAKgFOsiP1Lhf6pEsstt8qPMc2DfqEBGxaooFBuUR2EKwUN9lvfbCO2_HAAtYKO4uPFHgyhipcb0ZTVLjVl_jq-od88nHA1WW3wjXDk"/>
+<div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+</div>
+<!-- Map Controls Overlay -->
+<div class="absolute top-6 left-6 right-6 flex flex-col gap-4">
+<div class="flex gap-2">
+<div class="flex-1 bg-surface-container-lowest shadow-2xl rounded-xl p-2 flex items-center gap-3">
+<span class="material-symbols-outlined text-primary ml-2">search</span>
+<input class="border-none focus:ring-0 w-full text-sm bg-transparent" placeholder="Search location or enter GPS coordinates..." type="text"/>
+</div>
+<button class="bg-surface-container-lowest shadow-2xl p-3 rounded-xl hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined">my_location</span>
+</button>
+</div>
+</div>
+<!-- Boundary Drawing Tool Palette -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex bg-surface-container-lowest/90 backdrop-blur-md rounded-2xl p-2 shadow-2xl gap-2">
+<button class="flex items-center gap-2 px-4 py-2 bg-primary text-on-primary rounded-xl font-medium text-sm">
+<span class="material-symbols-outlined text-[20px]">polyline</span>
+                    Draw Boundaries
+                </button>
+<button class="flex items-center gap-2 px-4 py-2 hover:bg-surface-container-high rounded-xl font-medium text-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+                    Drop Pin
+                </button>
+</div>
+<!-- Precision Indicator Overlay -->
+<div class="absolute bottom-10 left-8 max-w-xs bg-surface-container-lowest/90 backdrop-blur-md shadow-2xl rounded-2xl p-4 border border-primary/10 flex gap-4 items-center">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="text-xs font-bold text-on-surface">Precision Enabled</p>
+<p class="text-[10px] text-on-surface-variant">Coordinates are automatically verified with ASC data.</p>
+</div>
+</div>
+</section>
+<!-- Right Column: Scrollable Form -->
+<section class="w-full md:w-[480px] lg:w-[560px] bg-surface flex flex-col h-full border-l border-outline-variant/20 shadow-[-10px_0_30px_rgba(0,0,0,0.02)]">
+<div class="flex-1 overflow-y-auto px-8 py-10 pb-32">
+<div class="space-y-12">
+<!-- Section 1: Basic Location -->
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">01</span>
+<h2 class="font-headline font-bold text-on-surface text-lg">Basic Identity</h2>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/70 ml-1">Land Name/Nickname</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/40 text-on-surface transition-all" placeholder="e.g. Mahaweli North Extension" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/70 ml-1">Land Area</label>
+<div class="flex gap-2">
+<input class="flex-1 bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/40 transition-all" placeholder="0.00" type="number"/>
+<select class="w-32 bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/40 font-medium">
+<option>Acres</option>
+<option>Perches</option>
+<option>Hectares</option>
+</select>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/70">District</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/40">
+<option>Select</option>
+<option>Anuradhapura</option>
+<option>Polonnaruwa</option>
+<option>Kurunegala</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/70">GN Division</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/40">
+<option>Select</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/70">ASC Division</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl p-3 focus:ring-2 focus:ring-primary/40">
+<option>Select</option>
+</select>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 2: Topography & Soil -->
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">02</span>
+<h2 class="font-headline font-bold text-on-surface text-lg">Topography &amp; Soil</h2>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="space-y-3">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/70 ml-1">Cultivation Type</label>
+<div class="grid grid-cols-2 gap-3">
+<label class="flex items-center p-4 rounded-xl bg-surface-container-low border-2 border-transparent has-[:checked]:border-primary has-[:checked]:bg-surface-container-lowest cursor-pointer transition-all">
+<input checked="" class="hidden" name="land_type" type="radio"/>
+<div class="flex flex-col">
+<span class="font-bold text-sm">Lowland</span>
+<span class="text-xs text-on-surface-variant">Paddy / Wet crops</span>
+</div>
+</label>
+<label class="flex items-center p-4 rounded-xl bg-surface-container-low border-2 border-transparent has-[:checked]:border-primary has-[:checked]:bg-surface-container-lowest cursor-pointer transition-all">
+<input class="hidden" name="land_type" type="radio"/>
+<div class="flex flex-col">
+<span class="font-bold text-sm">Highland</span>
+<span class="text-xs text-on-surface-variant">Veg / Tea / Fruits</span>
+</div>
+</label>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/70 ml-1">Terrain Profile</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/40">
+<option>Flat Plain</option>
+<option>Gentle Slope</option>
+<option>Steep / Terraced</option>
+<option>Undulating</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/70 ml-1">Known Soil Type</label>
+<div class="relative">
+<span class="material-symbols-outlined absolute left-4 top-4 text-on-surface-variant/50">grass</span>
+<input class="w-full bg-surface-container-low border-none rounded-xl p-4 pl-12 focus:ring-2 focus:ring-primary/40" placeholder="e.g. Reddish Brown Earths" type="text"/>
+</div>
+</div>
+</div>
+</div>
+<!-- Section 3: Water & Irrigation (NEWLY ADDED) -->
+<div class="space-y-6">
+<div class="flex items-center gap-3">
+<span class="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">03</span>
+<h2 class="font-headline font-bold text-on-surface text-lg">Water &amp; Risks</h2>
+</div>
+<div class="grid grid-cols-1 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/70 ml-1">Water Source</label>
+<select class="w-full bg-surface-container-low border-none rounded-xl p-4 focus:ring-2 focus:ring-primary/40">
+<option>Major Irrigation (Tank)</option>
+<option>Minor Irrigation (Anicut)</option>
+<option>Agro-Well</option>
+<option>Rain-fed Only</option>
+<option>River / Stream</option>
+</select>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-low rounded-xl">
+<div class="flex flex-col">
+<span class="font-bold text-sm">Yala Season Supply</span>
+<span class="text-xs text-on-surface-variant">Does water last throughout May–Sept?</span>
+</div>
+<label class="relative inline-flex items-center cursor-pointer">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-surface-container-highest peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="space-y-3">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant/70 ml-1">Historical Risks</label>
+<div class="grid grid-cols-1 gap-2">
+<label class="flex items-center gap-3 p-3 hover:bg-surface-container-low rounded-lg transition-all cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary cursor-pointer" type="checkbox"/>
+<span class="text-sm font-medium">Seasonal Flooding</span>
+</label>
+<label class="flex items-center gap-3 p-3 hover:bg-surface-container-low rounded-lg transition-all cursor-pointer">
+<input class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary cursor-pointer" type="checkbox"/>
+<span class="text-sm font-medium">Acute Drought Susceptibility</span>
+</label>
+<label class="flex items-center gap-3 p-3 hover:bg-surface-container-low rounded-lg transition-all cursor-pointer">
+<input checked="" class="w-5 h-5 rounded border-outline-variant text-primary focus:ring-primary cursor-pointer" type="checkbox"/>
+<span class="text-sm font-medium">Wildlife Threats (Elephants/Boar)</span>
+</label>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Sticky Footer Actions -->
+<div class="absolute bottom-0 right-0 left-0 p-6 bg-surface/80 backdrop-blur-xl border-t border-outline-variant/10 flex gap-4">
+<button class="flex-1 px-6 py-4 rounded-xl font-bold text-on-surface-variant hover:bg-surface-container-high transition-all">
+                    Cancel
+                </button>
+<button class="flex-[2] px-6 py-4 rounded-xl bg-[#059669] text-white font-bold shadow-lg shadow-emerald-600/20 hover:scale-[1.02] active:scale-[0.98] transition-all">
+                    Save Land Profile
+                </button>
+</div>
+</section>
+</main>
+</body></html>

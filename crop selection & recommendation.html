@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#e9f2ff",
+              "on-secondary-fixed-variant": "#5d4037",
+              "error-container": "#ffdad6",
+              "surface-variant": "#e2e3df",
+              "on-background": "#1a1c1a",
+              "surface-container": "#eeeeea",
+              "primary": "#206223",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#e7bdb1",
+              "surface-container-highest": "#e2e3df",
+              "tertiary-container": "#0072b6",
+              "primary-fixed-dim": "#91d78a",
+              "tertiary": "#00598f",
+              "secondary": "#77574d",
+              "primary-fixed": "#acf4a4",
+              "surface-bright": "#faf9f5",
+              "surface-tint": "#2a6b2c",
+              "error": "#ba1a1a",
+              "secondary-fixed": "#ffdbd0",
+              "tertiary-fixed": "#cfe5ff",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#0c5216",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#f1f1ed",
+              "outline-variant": "#bfcaba",
+              "background": "#faf9f5",
+              "secondary-container": "#fed3c7",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#3a7b3a",
+              "surface-container-high": "#e8e8e4",
+              "surface-container-low": "#f4f4f0",
+              "surface": "#faf9f5",
+              "on-tertiary-fixed-variant": "#004a78",
+              "on-surface-variant": "#40493d",
+              "inverse-primary": "#91d78a",
+              "on-secondary-container": "#795950",
+              "on-primary-container": "#cbffc2",
+              "on-primary-fixed": "#002203",
+              "on-surface": "#1a1c1a",
+              "inverse-surface": "#2f312e",
+              "outline": "#707a6c",
+              "on-secondary-fixed": "#2c160e",
+              "tertiary-fixed-dim": "#99cbff",
+              "surface-dim": "#dadad6",
+              "on-tertiary-fixed": "#001d34"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface selection:bg-primary-fixed selection:text-on-primary-fixed">
+<!-- TopNavBar -->
+<header class="bg-[#faf9f5] dark:bg-[#1a1c1a] docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1920px] mx-auto">
+<div class="text-2xl font-black text-[#206223] dark:text-[#3a7b3a] tracking-tighter">Fertile Canvas</div>
+<nav class="hidden md:flex gap-8 items-center">
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] font-['Manrope'] font-bold text-sm tracking-tight transition-colors duration-200" href="#">Dashboard</a>
+<a class="text-[#206223] dark:text-[#3a7b3a] border-b-2 border-[#206223] pb-1 font-['Manrope'] font-bold text-sm tracking-tight" href="#">Crops</a>
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] font-['Manrope'] font-bold text-sm tracking-tight transition-colors duration-200" href="#">Land</a>
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] font-['Manrope'] font-bold text-sm tracking-tight transition-colors duration-200" href="#">Pests</a>
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] font-['Manrope'] font-bold text-sm tracking-tight transition-colors duration-200" href="#">Market</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="p-2 text-on-surface-variant hover:bg-[#f4f4f0] dark:hover:bg-[#232623] rounded-full transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:bg-[#f4f4f0] dark:hover:bg-[#232623] rounded-full transition-all active:scale-95 duration-150">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<button class="flex items-center gap-2 p-1 pr-3 hover:bg-[#f4f4f0] dark:hover:bg-[#232623] rounded-full transition-all active:scale-95 duration-150 border border-outline-variant/30">
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high">
+<img alt="Nimal Perera" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiiy-lEVHmN9Y7OXz2TTQyUtUdLWz1h5X6BOG0vVPiqhwsTDhlm1mVpTo9FMKJLYcakRBVb01i7sLpj_SVAjx77s5LBZ3o9-DDXXJge7hwDiwFt5TIKL8zYpmIsw3RtR9-VjMqFZ29OwwkU2Wml00KrqL-NMliGVM_a56pb6D0GH19J8vev_3AozIrqjSREciqMRLqUO-4KF1omUy0iS09VdvpfGOXsbOAuiWCgG5d6p_rtA92dL9_EI5AVmJO4us3m30pePq37_Y"/>
+</div>
+<span class="material-symbols-outlined text-sm">expand_more</span>
+</button>
+</div>
+</div>
+<div class="bg-[#f4f4f0] dark:bg-[#232623] h-[1px] w-full"></div>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full p-6 w-64 bg-[#faf9f5] dark:bg-[#1a1c1a] z-40">
+<div class="mb-8 pt-16">
+<div class="flex items-center gap-3 px-4 py-3 mb-6 bg-surface-container-low dark:bg-stone-800 rounded-2xl cursor-pointer hover:bg-surface-container transition-colors group">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">map</span>
+</div>
+<div class="flex-1 min-w-0">
+<div class="font-['Manrope'] font-bold text-[#206223] dark:text-[#3a7b3a] text-sm truncate">Mada Idama</div>
+<div class="text-[10px] text-on-surface-variant/70 font-medium uppercase truncate">Lowland Plot</div>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:translate-y-0.5 transition-transform">expand_more</span>
+</div>
+</div>
+<nav class="flex-grow">
+<a class="flex items-center gap-3 px-4 py-3 mb-1 text-[#40493d] dark:text-[#bfcaba] hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 bg-[#e2e3df] dark:bg-[#2c312c] text-[#206223] dark:text-[#ffffff] rounded-xl px-4 py-3 mb-1 font-['Inter'] font-medium text-sm transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+<span>Crops</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mb-1 text-[#40493d] dark:text-[#bfcaba] hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span>Land</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mb-1 text-[#40493d] dark:text-[#bfcaba] hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="bug_report">bug_report</span>
+<span>Pests</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 mb-1 text-[#40493d] dark:text-[#bfcaba] hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span>Market</span>
+</a>
+</nav>
+<div class="mb-6">
+<button class="w-full bg-[#206223] dark:bg-[#3a7b3a] text-white py-3 px-4 rounded-xl font-bold text-sm shadow-lg shadow-primary/20 active:opacity-80 transition-all">
+                    + Add New Land
+                </button>
+</div>
+<div class="mt-auto border-t border-[#f4f4f0] dark:border-[#232623] pt-4 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-[#40493d] dark:text-[#bfcaba] hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#40493d] dark:text-[#bfcaba] hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="translate">translate</span>
+<span>Language</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error/5 rounded-xl font-['Inter'] font-medium text-sm transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content -->
+<main class="flex-1 md:ml-64 pt-24 px-6 md:px-12 pb-12 bg-surface">
+<!-- Hero Header Section -->
+<section class="mb-12 relative">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-2 block">Crop Intelligence Engine v2.4</span>
+<h1 class="text-4xl md:text-5xl font-black text-on-background tracking-tighter mb-4">Recommended for <span class="text-primary italic">Yala Season</span></h1>
+<p class="text-on-surface-variant text-lg leading-relaxed">Our neural engine has analyzed your soil profile (Plot 7A - Red Latosol) and local weather patterns. These 4 crops offer the highest yield potential for October planting.</p>
+</div>
+<div class="bg-surface-container-low p-6 rounded-2xl flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">calendar_month</span>
+</div>
+<div>
+<div class="text-xs font-bold text-on-surface-variant/60 uppercase tracking-tighter">Current Cycle</div>
+<div class="text-lg font-bold text-on-surface">Oct 12 — Jan 28</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Recommendation Grid -->
+<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+<!-- Crop Card 1: Chilli -->
+<div class="group bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0px_20px_40px_rgba(26,28,26,0.04)] transition-all hover:translate-y-[-4px]">
+<div class="h-48 relative overflow-hidden">
+<img alt="vibrant red chillies growing in a sun-drenched field with lush green leaves, macro shot with soft bokeh background" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD5kmCwR0YcBetX2WKGM1OSR6Y0WzXHADzTODXBu2hSo9OriKiF10tLI8XoHVdG9B8uKQri6a_ej6pXs1rZk8i_yPoYqCszrGaoryC8HN9Z04FG_cqBM2JmLW8ly59ElJHWhnSL91mAIqs-bslZequkTJ8hChN1ZY8n-uIR89XIlnvx9ICCxc5amRkim85ecNYFmIK0bKeXBgFqLRyQ22FaPdKn142yyBy4X5paH3elMA60_8DnoxLStit2frfs_BsDtuuj2e_hkmI"/>
+<div class="absolute top-4 left-4 bg-primary/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-bold tracking-wide">98% COMPATIBILITY</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-3xl font-black tracking-tight text-on-background">MICH Chilli 1</h3>
+<p class="text-on-surface-variant font-medium">High-Value Hybrid Variety</p>
+</div>
+<div class="text-right">
+<div class="text-primary text-2xl font-black">9.4/10</div>
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Profitability Score</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<div class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">Estimated Yield</div>
+<div class="text-xl font-bold text-on-surface">2200 kg/acre</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<div class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">Water Need</div>
+<div class="text-xl font-bold text-tertiary">Moderate</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="h-2 w-24 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[85%]"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">High Demand</span>
+</div>
+<button class="bg-on-background text-surface-bright px-6 py-3 rounded-full font-bold text-sm hover:bg-primary transition-all">Select for Cultivation</button>
+</div>
+</div>
+</div>
+<!-- Crop Card 2: Tomato (Warning State) -->
+<div class="group bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0px_20px_40px_rgba(26,28,26,0.04)] transition-all hover:translate-y-[-4px]">
+<div class="h-48 relative overflow-hidden">
+<img alt="rows of ripe red tomatoes on vines in a modern organic farm greenhouse, bright natural lighting" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHbPvcPP2RonaFvjIcTGgAns5sMQXjpgQdot2mZEAsS-8NgOy0hlm5kDlibUyI1PR5cvmbBnOTAWtbxl4HNAD66yg3I8hb_qw1gulliQis1NVftfZq1d5A-8_pHvnJgmrusX2CIQTAdZUmT-pxUAjuxY82XpstmbTQ3412GJIHb1eBgm2m_Fuh1hO8Yr7sTfbin28etxpsbljhihiYeDE0PZtLdx1IEksgIXG8400VB0qiIpvOWDPT0m6eCQuYfxw993qlSdm-Mgw"/>
+<div class="absolute inset-0 bg-error/10"></div>
+<div class="absolute top-4 left-4 bg-error text-white px-3 py-1 rounded-full text-xs font-bold tracking-wide flex items-center gap-1">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">warning</span>
+                            MARKET GLUT WARNING
+                        </div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-3xl font-black tracking-tight text-on-background">Thilina Tomato</h3>
+<p class="text-on-surface-variant font-medium">Open-Pollinated Selection</p>
+</div>
+<div class="text-right">
+<div class="text-error text-2xl font-black">4.2/10</div>
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Profitability Score</div>
+</div>
+</div>
+<p class="text-error font-medium text-sm mb-6 flex items-start gap-2 bg-error-container/30 p-4 rounded-xl">
+<span class="material-symbols-outlined shrink-0">info</span>
+                            Oversupply predicted in Dambulla Market for late January. Expected farm-gate price drop of 35%. Proceed with caution.
+                        </p>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<div class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">Estimated Yield</div>
+<div class="text-xl font-bold text-on-surface">18,000 kg/acre</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<div class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">Water Need</div>
+<div class="text-xl font-bold text-tertiary">High</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="h-2 w-24 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error w-[30%]"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">Low Demand</span>
+</div>
+<button class="bg-surface-container-high text-on-surface px-6 py-3 rounded-full font-bold text-sm hover:bg-surface-container-highest transition-all">View Analytics</button>
+</div>
+</div>
+</div>
+<!-- Crop Card 3: Big Onion -->
+<div class="group bg-surface-container-lowest rounded-3xl overflow-hidden shadow-[0px_20px_40px_rgba(26,28,26,0.04)] transition-all hover:translate-y-[-4px]">
+<div class="h-48 relative overflow-hidden">
+<img alt="heaps of harvested purple and golden onions at a rustic market, warm earthy tones and rich textures" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9PHKSlmtTs30j8m8jnNadESd_yChGAo_MY9fU5hlKSiHRfURBn3I2Uv2mDnE7MJ_L782qTPmf-DMqr0t0uwm406iB3EQoKe-qOI7LCEsrXxtycZle_SRtUbDQ6V660qpHMtts1OzwUavuNFaN1llZnsjfjiM016TkCfp7bQ7TD3QYutvGYcL8vmyqN1eNvTuUo7wCC-SR8QN1lDmAYS696eRIndD2Ftu6w92H32oEnpGXn-dJ02quLoi7yeMj51t2EATil4E6KH0"/>
+<div class="absolute top-4 left-4 bg-tertiary text-white px-3 py-1 rounded-full text-xs font-bold tracking-wide">OPTIMAL SOIL MATCH</div>
+</div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<div>
+<h3 class="text-3xl font-black tracking-tight text-on-background">Dambulla Red</h3>
+<p class="text-on-surface-variant font-medium">Local High-Performance Variety</p>
+</div>
+<div class="text-right">
+<div class="text-primary text-2xl font-black">8.8/10</div>
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest">Profitability Score</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<div class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">Estimated Yield</div>
+<div class="text-xl font-bold text-on-surface">6500 kg/acre</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-2xl">
+<div class="text-[10px] font-bold text-on-surface-variant/60 uppercase tracking-widest mb-1">Water Need</div>
+<div class="text-xl font-bold text-tertiary">Low</div>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<div class="h-2 w-24 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[75%]"></div>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">Stable Demand</span>
+</div>
+<button class="bg-on-background text-surface-bright px-6 py-3 rounded-full font-bold text-sm hover:bg-primary transition-all">Select for Cultivation</button>
+</div>
+</div>
+</div>
+<!-- Comparison Metric Visualizer -->
+<div class="bg-primary text-white rounded-3xl p-8 relative overflow-hidden flex flex-col justify-center">
+<div class="relative z-10">
+<h3 class="text-2xl font-black mb-2 leading-tight">Why Chilli MICH 1 wins?</h3>
+<p class="text-primary-fixed-dim/80 text-sm mb-6">Comparative analysis against region averages.</p>
+<div class="space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-widest">
+<span>Soil Nutrient Synergy</span>
+<span>92%</span>
+</div>
+<div class="h-1.5 w-full bg-white/20 rounded-full">
+<div class="h-full bg-white w-[92%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-widest">
+<span>Resistance Index</span>
+<span>78%</span>
+</div>
+<div class="h-1.5 w-full bg-white/20 rounded-full">
+<div class="h-full bg-white w-[78%] rounded-full"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-xs font-bold uppercase tracking-widest">
+<span>Export Potential</span>
+<span>65%</span>
+</div>
+<div class="h-1.5 w-full bg-white/20 rounded-full">
+<div class="h-full bg-white w-[65%] rounded-full"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-8 border-t border-white/10">
+<div class="flex items-center gap-4">
+<div class="p-3 bg-white/10 rounded-xl">
+<span class="material-symbols-outlined">analytics</span>
+</div>
+<div>
+<div class="text-lg font-bold leading-none mb-1">Rs. 420,000</div>
+<div class="text-xs opacity-70">Estimated net profit per acre</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Graphic -->
+<div class="absolute right-[-10%] bottom-[-10%] opacity-10">
+<span class="material-symbols-outlined text-[300px]" style="font-variation-settings: 'wght' 100;">grass</span>
+</div>
+</div>
+</div>
+<!-- Market Intelligence Section -->
+<section class="mt-16 bg-surface-container-low rounded-[40px] p-8 md:p-12 border border-outline-variant/10">
+<div class="flex flex-col md:flex-row gap-12 items-center">
+<div class="flex-1 space-y-6">
+<h2 class="text-4xl font-black text-on-background leading-none">Global Market <br/>Outlook</h2>
+<p class="text-on-surface-variant leading-relaxed">International demand for dried capsicum is trending upward by 12.5% YoY. Regional trade agreements favor Sri Lankan exports this quarter.</p>
+<div class="flex gap-4">
+<div class="px-6 py-4 bg-surface-container-lowest rounded-2xl">
+<div class="text-2xl font-black text-primary">$4.20</div>
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Global Price /kg</div>
+</div>
+<div class="px-6 py-4 bg-surface-container-lowest rounded-2xl">
+<div class="text-2xl font-black text-tertiary">↑ 8%</div>
+<div class="text-[10px] font-bold text-on-surface-variant uppercase tracking-tighter">Market Trend</div>
+</div>
+</div>
+</div>
+<div class="w-full md:w-[400px] h-64 bg-surface-container-highest rounded-3xl relative p-6 overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-br from-tertiary/5 to-primary/5"></div>
+<div class="relative z-10 h-full flex flex-col justify-end">
+<div class="flex items-end gap-2 h-32">
+<div class="flex-1 bg-tertiary/20 rounded-t-lg h-[40%]"></div>
+<div class="flex-1 bg-tertiary/40 rounded-t-lg h-[60%]"></div>
+<div class="flex-1 bg-tertiary/60 rounded-t-lg h-[50%]"></div>
+<div class="flex-1 bg-tertiary/80 rounded-t-lg h-[80%]"></div>
+<div class="flex-1 bg-primary rounded-t-lg h-[100%]"></div>
+</div>
+<div class="mt-4 text-[10px] font-bold text-on-surface-variant uppercase text-center tracking-widest">Price Projection (Oct - Feb)</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-[#bfcaba]/20 py-8 mt-12 bg-[#faf9f5] dark:bg-stone-900">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-['Inter'] text-xs uppercase tracking-widest text-[#40493d] opacity-70">
+                © 2024 Fertile Canvas Sri Lanka. Tactile Intelligence.
+            </div>
+<div class="flex gap-8">
+<a class="font-['Inter'] text-xs uppercase tracking-widest text-[#40493d] opacity-70 hover:opacity-100 hover:text-[#206223] transition-opacity" href="#">Privacy Policy</a>
+<a class="font-['Inter'] text-xs uppercase tracking-widest text-[#40493d] opacity-70 hover:opacity-100 hover:text-[#206223] transition-opacity" href="#">Terms of Service</a>
+<a class="font-['Inter'] text-xs uppercase tracking-widest text-[#40493d] opacity-70 hover:opacity-100 hover:text-[#206223] transition-opacity" href="#">Farmer Support</a>
+<a class="font-['Inter'] text-xs uppercase tracking-widest text-[#40493d] opacity-70 hover:opacity-100 hover:text-[#206223] transition-opacity" href="#">Economic Center API</a>
+</div>
+</div>
+</footer>
+</body></html>

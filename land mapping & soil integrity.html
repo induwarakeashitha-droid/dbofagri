@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#e9f2ff",
+              "on-secondary-fixed-variant": "#5d4037",
+              "error-container": "#ffdad6",
+              "surface-variant": "#e2e3df",
+              "on-background": "#1a1c1a",
+              "surface-container": "#eeeeea",
+              "primary": "#206223",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#e7bdb1",
+              "surface-container-highest": "#e2e3df",
+              "tertiary-container": "#0072b6",
+              "primary-fixed-dim": "#91d78a",
+              "tertiary": "#00598f",
+              "secondary": "#77574d",
+              "primary-fixed": "#acf4a4",
+              "surface-bright": "#faf9f5",
+              "surface-tint": "#2a6b2c",
+              "error": "#ba1a1a",
+              "secondary-fixed": "#ffdbd0",
+              "tertiary-fixed": "#cfe5ff",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#0c5216",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#f1f1ed",
+              "outline-variant": "#bfcaba",
+              "background": "#faf9f5",
+              "secondary-container": "#fed3c7",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#3a7b3a",
+              "surface-container-high": "#e8e8e4",
+              "surface-container-low": "#f4f4f0",
+              "surface": "#faf9f5",
+              "on-tertiary-fixed-variant": "#004a78",
+              "on-surface-variant": "#40493d",
+              "inverse-primary": "#91d78a",
+              "on-secondary-container": "#795950",
+              "on-primary-container": "#cbffc2",
+              "on-primary-fixed": "#002203",
+              "on-surface": "#1a1c1a",
+              "inverse-surface": "#2f312e",
+              "outline": "#707a6c",
+              "on-secondary-fixed": "#2c160e",
+              "tertiary-fixed-dim": "#99cbff",
+              "surface-dim": "#dadad6",
+              "on-tertiary-fixed": "#001d34"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3 { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar (Updated with shared component logic) -->
+<nav class="fixed top-0 z-50 w-full bg-[#faf9f5] dark:bg-[#1a1c1a]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1920px] mx-auto">
+<div class="text-2xl font-black text-[#206223] dark:text-[#3a7b3a] tracking-tighter">Fertile Canvas</div>
+<div class="hidden md:flex items-center gap-8 font-['Manrope'] font-bold text-sm tracking-tight">
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] transition-colors duration-200" href="#">Dashboard</a>
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] transition-colors duration-200" href="#">Crops</a>
+<a class="text-[#206223] dark:text-[#3a7b3a] border-b-2 border-[#206223] pb-1" href="#">Land</a>
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] transition-colors duration-200" href="#">Pests</a>
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] transition-colors duration-200" href="#">Market</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-[#206223] dark:text-[#3a7b3a] hover:bg-[#f4f4f0] dark:hover:bg-[#232623] rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-[#206223] dark:text-[#3a7b3a] hover:bg-[#f4f4f0] dark:hover:bg-[#232623] rounded-full transition-colors duration-200">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<div class="relative group cursor-pointer">
+<img alt="Nimal Perera" class="w-8 h-8 rounded-full border border-outline-variant/20 group-active:scale-95 transition-transform" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDylXabyd8IPyoF0ai4b2LfKx3oPRYgt9N5fOrW1GZfzQIEUmhQsv3LnyJhMhs4liO0inQwlHIQE0fzYfxxPCUszq5YmzE6xM4QvUluK2_rIFZ1BKdNPGbfGcU_RYlfgrGSGHS1g8eYAMyG_xX8fVcTcbp1UPCAjOnu4hu3vuQoqlmf6QLV2L8Kgs3LHVvvZHmDgT1IvaN92LksnlQo9fXDDatNkG_31mjeXSNIj2Sm184ciMK4MpSi3mQN4i755QNwp4HTq5kC85c"/>
+<!-- Simple Profile Dropdown Mockup (Hidden by default) -->
+<div class="absolute right-0 mt-2 w-48 bg-white dark:bg-stone-800 rounded-xl shadow-lg border border-outline-variant/20 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-200 z-[60]">
+<div class="p-3 border-b border-outline-variant/10">
+<p class="text-xs font-bold text-on-surface">Nimal Perera</p>
+<p class="text-[10px] text-on-surface-variant">nimal.p@agri.lk</p>
+</div>
+<div class="p-2">
+<a class="block px-3 py-2 text-xs hover:bg-surface-container-low rounded-lg" href="#">View Profile</a>
+<a class="block px-3 py-2 text-xs hover:bg-surface-container-low rounded-lg" href="#">Log Out</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-[#f4f4f0] dark:bg-[#232623] h-[1px] w-full"></div>
+</nav>
+<!-- SideNavBar (Updated with Land Switcher and shared component styles) -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full w-64 p-6 bg-[#faf9f5] dark:bg-[#1a1c1a] border-r border-[#f4f4f0] dark:border-[#232623] pt-24 z-40">
+<div class="px-2 mb-8">
+<div class="flex items-center gap-2 mb-1">
+<span class="text-xl font-bold text-[#206223]">Fertile Canvas</span>
+</div>
+<!-- Land Switcher Dropdown -->
+<button class="w-full flex items-center justify-between px-3 py-2 bg-white dark:bg-stone-800 border border-outline-variant/30 rounded-xl shadow-sm hover:translate-x-1 transition-transform duration-200">
+<div class="text-left overflow-hidden">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Active Land</p>
+<p class="text-sm font-semibold text-on-surface truncate">Mada Idama (Lowland)</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="unfold_more">unfold_more</span>
+</button>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 text-[#40493d] dark:text-[#bfcaba] px-4 py-3 mb-1 hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-[#40493d] dark:text-[#bfcaba] px-4 py-3 mb-1 hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+<span>Crops</span>
+</a>
+<a class="flex items-center gap-3 bg-[#e2e3df] dark:bg-[#2c312c] text-[#206223] dark:text-[#ffffff] px-4 py-3 mb-1 rounded-xl font-['Inter'] font-medium text-sm hover:translate-x-1 transition-transform duration-200 shadow-sm" href="#">
+<span class="material-symbols-outlined" data-icon="map">map</span>
+<span>Land</span>
+</a>
+<a class="flex items-center gap-3 text-[#40493d] dark:text-[#bfcaba] px-4 py-3 mb-1 hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="bug_report">bug_report</span>
+<span>Pests</span>
+</a>
+<a class="flex items-center gap-3 text-[#40493d] dark:text-[#bfcaba] px-4 py-3 mb-1 hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span>Market</span>
+</a>
+</nav>
+<div class="mb-6">
+<button class="w-full bg-[#206223] text-on-primary py-3 rounded-xl font-bold text-sm shadow-md flex items-center justify-center gap-2 hover:opacity-90 active:opacity-80 transition-all">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                Add New Land
+            </button>
+</div>
+<div class="pt-4 border-t border-[#f4f4f0] dark:border-[#232623] space-y-1">
+<a class="flex items-center gap-3 text-[#40493d] dark:text-[#bfcaba] px-4 py-3 mb-1 hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+<a class="flex items-center gap-3 text-[#40493d] dark:text-[#bfcaba] px-4 py-3 mb-1 hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="translate">translate</span>
+<span>Language</span>
+</a>
+<a class="flex items-center gap-3 text-[#40493d] dark:text-[#bfcaba] px-4 py-3 mb-1 hover:bg-[#f4f4f0] rounded-xl font-['Inter'] font-medium text-sm hover:translate-x-1 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span>Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:ml-64 pt-20 min-h-screen">
+<div class="max-w-7xl mx-auto px-6 py-8">
+<!-- Page Header -->
+<header class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+<div>
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface">Land Mapping &amp; Soil Integrity</h1>
+<p class="text-on-surface-variant font-medium mt-1">Matale District • Plot #204 • Cinnamon Plantation</p>
+</div>
+<div class="flex items-center gap-2 px-4 py-2 bg-surface-container-high rounded-full">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="gps_fixed" style="font-variation-settings: 'FILL' 1;">gps_fixed</span>
+<span class="text-xs font-bold text-primary uppercase tracking-wider">Automated GPS Sync Active</span>
+</div>
+</header>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-stretch">
+<!-- Left Panel: Interactive Map Mockup -->
+<section class="xl:col-span-7 bg-surface-container-low rounded-3xl overflow-hidden relative group min-h-[500px]">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="high resolution satellite view of lush green agricultural fields and terraced land in Sri Lanka with a digital overlay grid" data-location="Sri Lanka" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBvn59BQ_rykz2q2V4CqshZ6y2U33iPNkeo0N3RanwlvE-rFOYKNN7Zl6c44GZ3yoRF0qcQlhneXFwc1ZHeClguzo1uujQsNbBspexTNty0H6JtkM0_V2yilxWhhC_Tq7u1oSEHNvxNOcbfc2OqLv2aCyq4PnlJnL87YJmtgAC215VhiNuDnqjvnIpc8Zk_EXDrz1-0b3ld8Rma_YSglYsAlccxi7R25mpx7AGLnjunfMCYjYTn9czCKFnlyQc1nt0nodhHARpD4w')"></div>
+<div class="absolute inset-0 bg-primary/5"></div>
+<!-- Map Overlays -->
+<div class="absolute top-6 left-6 flex flex-col gap-2">
+<button class="bg-surface-container-lowest/90 backdrop-blur-md p-3 rounded-xl shadow-lg hover:bg-white transition-all">
+<span class="material-symbols-outlined text-on-surface" data-icon="layers">layers</span>
+</button>
+<button class="bg-surface-container-lowest/90 backdrop-blur-md p-3 rounded-xl shadow-lg hover:bg-white transition-all">
+<span class="material-symbols-outlined text-on-surface" data-icon="near_me" style="font-variation-settings: 'FILL' 1;">near_me</span>
+</button>
+</div>
+<!-- Location Pin -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+<div class="relative">
+<div class="absolute -inset-4 bg-primary/20 rounded-full animate-ping"></div>
+<div class="bg-primary text-on-primary p-2 rounded-full shadow-2xl relative z-10 border-2 border-white">
+<span class="material-symbols-outlined block" data-icon="agriculture" style="font-variation-settings: 'FILL' 1;">agriculture</span>
+</div>
+<div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-white px-3 py-1 rounded-lg shadow-xl text-[10px] font-bold whitespace-nowrap border border-outline-variant/20">
+                                MATALE SITE 01
+                            </div>
+</div>
+</div>
+<!-- Bottom Controls -->
+<div class="absolute bottom-6 left-6 right-6 flex justify-between items-end">
+<div class="bg-surface-container-lowest/90 backdrop-blur-md p-4 rounded-2xl shadow-xl max-w-xs border border-outline-variant/10">
+<p class="text-[10px] font-bold text-on-surface-variant uppercase tracking-widest mb-1">Coordinates</p>
+<p class="text-sm font-mono font-bold">7.4675° N, 80.6234° E</p>
+<div class="mt-3 flex items-center gap-3">
+<div class="flex flex-col">
+<span class="text-[9px] text-on-surface-variant">Elevation</span>
+<span class="text-xs font-bold">354m</span>
+</div>
+<div class="w-px h-6 bg-outline-variant/30"></div>
+<div class="flex flex-col">
+<span class="text-[9px] text-on-surface-variant">Area</span>
+<span class="text-xs font-bold">12.4 Ha</span>
+</div>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<button class="bg-primary text-on-primary px-6 py-3 rounded-full font-bold text-sm shadow-xl flex items-center gap-2">
+<span class="material-symbols-outlined text-lg" data-icon="distance">distance</span>
+                                Measure
+                            </button>
+</div>
+</div>
+</section>
+<!-- Right Panel: Soil Profile Details -->
+<section class="xl:col-span-5 flex flex-col gap-6">
+<!-- Soil Type Card -->
+<div class="bg-surface-container-high p-8 rounded-3xl relative overflow-hidden">
+<div class="absolute top-0 right-0 p-8 opacity-10">
+<span class="material-symbols-outlined text-8xl" data-icon="texture">texture</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-[0.2em] mb-4 block">Soil Classification</span>
+<h2 class="text-3xl font-extrabold text-[#77574d] mb-2">Red-Brown Earth</h2>
+<p class="text-sm text-on-surface-variant leading-relaxed max-w-xs">High fertility soil typical of the dry and intermediate zones of Sri Lanka, perfect for perennial crops.</p>
+<div class="mt-8 flex gap-4">
+<div class="bg-surface-container-lowest/60 px-4 py-2 rounded-xl">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant block">Texture</span>
+<span class="text-sm font-bold">Sandy Loam</span>
+</div>
+<div class="bg-surface-container-lowest/60 px-4 py-2 rounded-xl">
+<span class="text-[10px] uppercase font-bold text-on-surface-variant block">Drainage</span>
+<span class="text-sm font-bold">Moderate</span>
+</div>
+</div>
+</div>
+<!-- Metrics Grid -->
+<div class="grid grid-cols-2 gap-4">
+<!-- pH -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/10 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary/10 rounded-lg text-primary">
+<span class="material-symbols-outlined text-xl" data-icon="science">science</span>
+</div>
+<span class="text-[10px] font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">OPTIMAL</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant block">Soil pH</span>
+<span class="text-2xl font-black text-on-surface">6.4</span>
+</div>
+<!-- Nitrogen -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/10 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-tertiary/10 rounded-lg text-tertiary">
+<span class="material-symbols-outlined text-xl" data-icon="water_drop">water_drop</span>
+</div>
+<span class="text-[10px] font-bold text-orange-700 bg-orange-50 px-2 py-0.5 rounded">LOW</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant block">Nitrogen (N)</span>
+<span class="text-2xl font-black text-on-surface">18 <small class="text-xs font-medium">ppm</small></span>
+</div>
+<!-- Phosphorus -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/10 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-secondary/10 rounded-lg text-secondary">
+<span class="material-symbols-outlined text-xl" data-icon="temp_preferences_custom">temp_preferences_custom</span>
+</div>
+<span class="text-[10px] font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">OPTIMAL</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant block">Phosphorus (P)</span>
+<span class="text-2xl font-black text-on-surface">42 <small class="text-xs font-medium">ppm</small></span>
+</div>
+<!-- Potassium -->
+<div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/10 shadow-sm">
+<div class="flex justify-between items-start mb-4">
+<div class="p-2 bg-primary-container/10 rounded-lg text-primary-container">
+<span class="material-symbols-outlined text-xl" data-icon="bolt">bolt</span>
+</div>
+<span class="text-[10px] font-bold text-green-700 bg-green-50 px-2 py-0.5 rounded">HIGH</span>
+</div>
+<span class="text-xs font-medium text-on-surface-variant block">Potassium (K)</span>
+<span class="text-2xl font-black text-on-surface">210 <small class="text-xs font-medium">ppm</small></span>
+</div>
+</div>
+<!-- Upload Form Section -->
+<div class="mt-auto">
+<div class="bg-surface-container-low border-2 border-dashed border-outline-variant/40 rounded-3xl p-8 flex flex-col items-center justify-center text-center group hover:border-primary/40 transition-colors">
+<div class="w-16 h-16 bg-surface-container-highest rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-primary text-3xl" data-icon="cloud_upload">cloud_upload</span>
+</div>
+<h4 class="font-bold text-on-surface">Upload New Soil Report</h4>
+<p class="text-sm text-on-surface-variant mt-1 mb-6">Drag and drop PDF or CSV files from lab tests</p>
+<label class="cursor-pointer bg-white text-on-surface px-8 py-2.5 rounded-full font-bold text-sm shadow-sm border border-outline-variant/20 hover:bg-surface-container-low transition-all">
+                                Select File
+                                <input class="hidden" type="file"/>
+</label>
+<div class="mt-6 flex items-center gap-2 text-[10px] text-on-surface-variant font-bold uppercase tracking-widest">
+<span class="material-symbols-outlined text-xs" data-icon="info">info</span>
+                                Manual entries update global profile
+                            </div>
+</div>
+</div>
+</section>
+</div>
+<!-- Contextual Data Visualization Section -->
+<section class="mt-12">
+<div class="bg-surface-container-low rounded-3xl p-8">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-2xl font-extrabold tracking-tight">Nutrient Trend History</h3>
+<div class="flex gap-2">
+<button class="px-4 py-2 rounded-lg bg-surface-container-highest text-xs font-bold">6 MONTHS</button>
+<button class="px-4 py-2 rounded-lg text-xs font-bold opacity-40 hover:opacity-100">1 YEAR</button>
+</div>
+</div>
+<!-- Simulated Area Chart Content -->
+<div class="h-64 flex items-end gap-2 relative">
+<!-- Chart Lines and Areas Mockup -->
+<div class="absolute inset-0 flex items-end">
+<svg class="w-full h-full opacity-30" preserveaspectratio="none" viewbox="0 0 100 100">
+<path d="M0 80 Q 25 20, 50 50 T 100 30 L 100 100 L 0 100 Z" fill="url(#grad1)"></path>
+<defs>
+<lineargradient id="grad1" x1="0%" x2="0%" y1="0%" y2="100%">
+<stop offset="0%" style="stop-color:#206223;stop-opacity:1"></stop>
+<stop offset="100%" style="stop-color:#206223;stop-opacity:0"></stop>
+</lineargradient>
+</defs>
+</svg>
+</div>
+<!-- X-Axis Labels -->
+<div class="absolute bottom-0 w-full translate-y-8 flex justify-between text-[10px] font-bold text-on-surface-variant uppercase">
+<span>January</span>
+<span>February</span>
+<span>March</span>
+<span>April</span>
+<span>May</span>
+<span>June</span>
+</div>
+<!-- Chart Tooltip Mockup -->
+<div class="absolute left-1/2 bottom-1/2 -translate-x-1/2 bg-on-surface text-surface p-3 rounded-xl shadow-2xl z-20">
+<p class="text-[9px] font-bold opacity-60">APRIL 14</p>
+<p class="text-xs font-bold">Organic Carbon: 1.2%</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#bfcaba]/20 py-8 mt-12 bg-[#faf9f5] dark:bg-stone-900">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-['Inter'] text-xs uppercase tracking-widest text-[#40493d] opacity-70">© 2024 Fertile Canvas Sri Lanka. Tactile Intelligence.</p>
+<div class="flex gap-8 font-['Inter'] text-xs uppercase tracking-widest">
+<a class="text-[#40493d] opacity-70 hover:opacity-100 hover:text-[#206223] transition-opacity" href="#">Privacy Policy</a>
+<a class="text-[#40493d] opacity-70 hover:opacity-100 hover:text-[#206223] transition-opacity" href="#">Terms of Service</a>
+<a class="text-[#40493d] opacity-70 hover:opacity-100 hover:text-[#206223] transition-opacity" href="#">Farmer Support</a>
+<a class="text-[#40493d] opacity-70 hover:opacity-100 hover:text-[#206223] transition-opacity" href="#">Economic Center API</a>
+</div>
+</div>
+</footer>
+</body></html>

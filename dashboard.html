@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Fertile Canvas | Sri Lankan Agri-Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary-container": "#e9f2ff",
+              "on-secondary-fixed-variant": "#5d4037",
+              "error-container": "#ffdad6",
+              "surface-variant": "#e2e3df",
+              "on-background": "#1a1c1a",
+              "surface-container": "#eeeeea",
+              "primary": "#206223",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "on-error": "#ffffff",
+              "secondary-fixed-dim": "#e7bdb1",
+              "surface-container-highest": "#e2e3df",
+              "tertiary-container": "#0072b6",
+              "primary-fixed-dim": "#91d78a",
+              "tertiary": "#00598f",
+              "secondary": "#77574d",
+              "primary-fixed": "#acf4a4",
+              "surface-bright": "#faf9f5",
+              "surface-tint": "#2a6b2c",
+              "error": "#ba1a1a",
+              "secondary-fixed": "#ffdbd0",
+              "tertiary-fixed": "#cfe5ff",
+              "on-secondary": "#ffffff",
+              "on-primary-fixed-variant": "#0c5216",
+              "on-error-container": "#93000a",
+              "inverse-on-surface": "#f1f1ed",
+              "outline-variant": "#bfcaba",
+              "background": "#faf9f5",
+              "secondary-container": "#fed3c7",
+              "surface-container-lowest": "#ffffff",
+              "primary-container": "#3a7b3a",
+              "surface-container-high": "#e8e8e4",
+              "surface-container-low": "#f4f4f0",
+              "surface": "#faf9f5",
+              "on-tertiary-fixed-variant": "#004a78",
+              "on-surface-variant": "#40493d",
+              "inverse-primary": "#91d78a",
+              "on-secondary-container": "#795950",
+              "on-primary-container": "#cbffc2",
+              "on-primary-fixed": "#002203",
+              "on-surface": "#1a1c1a",
+              "inverse-surface": "#2f312e",
+              "outline": "#707a6c",
+              "on-secondary-fixed": "#2c160e",
+              "tertiary-fixed-dim": "#99cbff",
+              "surface-dim": "#dadad6",
+              "on-tertiary-fixed": "#001d34"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        vertical-align: middle;
+      }
+      body {
+        font-family: 'Inter', sans-serif;
+        background-color: #faf9f5;
+      }
+      .bento-grid {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 1.5rem;
+      }
+      .dropdown-content {
+        display: none;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col fixed left-0 top-0 h-full w-64 p-6 bg-[#faf9f5] dark:bg-[#1a1c1a] border-r border-outline-variant/20 z-40">
+<div class="mb-8">
+<h1 class="text-xl font-bold text-[#206223] font-headline">Fertile Canvas</h1>
+<p class="font-body text-xs text-[#40493d] dark:text-[#bfcaba] font-medium">Mada Idama (Lowland)</p>
+</div>
+<nav class="flex-grow space-y-1">
+<a class="bg-[#e2e3df] dark:bg-[#2c312c] text-[#206223] dark:text-[#ffffff] rounded-xl px-4 py-3 flex items-center font-['Inter'] font-medium text-sm transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="dashboard">dashboard</span> Dashboard
+        </a>
+<a class="text-[#40493d] dark:text-[#bfcaba] px-4 py-3 rounded-xl flex items-center font-['Inter'] font-medium text-sm hover:bg-[#f4f4f0] transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="eco">eco</span> Crops
+        </a>
+<a class="text-[#40493d] dark:text-[#bfcaba] px-4 py-3 rounded-xl flex items-center font-['Inter'] font-medium text-sm hover:bg-[#f4f4f0] transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="map">map</span> Land
+        </a>
+<a class="text-[#40493d] dark:text-[#bfcaba] px-4 py-3 rounded-xl flex items-center font-['Inter'] font-medium text-sm hover:bg-[#f4f4f0] transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="bug_report">bug_report</span> Pests
+        </a>
+<a class="text-[#40493d] dark:text-[#bfcaba] px-4 py-3 rounded-xl flex items-center font-['Inter'] font-medium text-sm hover:bg-[#f4f4f0] transition-transform duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="storefront">storefront</span> Market
+        </a>
+</nav>
+<div class="mt-auto space-y-4">
+<button class="w-full bg-[#206223] text-on-primary rounded-xl py-3 font-bold text-sm shadow-lg active:opacity-80 transition-all">
+            + Add New Land
+        </button>
+<div class="pt-4 border-t border-outline-variant/20">
+<a class="text-[#40493d] dark:text-[#bfcaba] flex items-center px-4 py-2 text-sm font-medium hover:text-[#206223] transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="settings">settings</span> Settings
+            </a>
+<a class="text-[#40493d] dark:text-[#bfcaba] flex items-center px-4 py-2 text-sm font-medium hover:text-[#206223] transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="translate">translate</span> Language
+            </a>
+<a class="text-[#40493d] dark:text-[#bfcaba] flex items-center px-4 py-2 text-sm font-medium hover:text-[#206223] transition-colors" href="#">
+<span class="material-symbols-outlined mr-3" data-icon="logout">logout</span> Log Out
+            </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Shell -->
+<main class="md:ml-64 min-h-screen">
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 bg-[#faf9f5] dark:bg-[#1a1c1a] border-b border-[#f4f4f0] dark:border-[#232623]">
+<div class="flex justify-between items-center w-full px-8 py-4 max-w-[1920px] mx-auto">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#206223] dark:text-[#3a7b3a] tracking-tighter font-headline">Fertile Canvas</span>
+<nav class="hidden lg:flex gap-6 items-center">
+<a class="text-[#206223] dark:text-[#3a7b3a] border-b-2 border-[#206223] pb-1 font-headline font-bold text-sm tracking-tight" href="#">Dashboard</a>
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] transition-colors duration-200 font-headline font-bold text-sm tracking-tight" href="#">Crops</a>
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] transition-colors duration-200 font-headline font-bold text-sm tracking-tight" href="#">Land</a>
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] transition-colors duration-200 font-headline font-bold text-sm tracking-tight" href="#">Pests</a>
+<a class="text-[#40493d] dark:text-[#bfcaba] hover:text-[#206223] transition-colors duration-200 font-headline font-bold text-sm tracking-tight" href="#">Market</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<!-- Land Switcher -->
+<div class="relative dropdown hidden sm:block">
+<button class="bg-surface-container-high hover:bg-surface-container-highest px-4 py-2 rounded-xl text-sm font-bold flex items-center gap-2 transition-all">
+<span>🌱 Mada Idama (Lowland) - 2 Acres</span>
+<span class="material-symbols-outlined text-sm" data-icon="expand_more">expand_more</span>
+</button>
+<div class="dropdown-content absolute right-0 mt-2 w-64 bg-surface rounded-xl shadow-xl border border-outline-variant/20 py-2 z-[60]">
+<p class="px-4 py-2 text-xs font-bold text-on-surface-variant uppercase tracking-wider">Your Lands</p>
+<a class="flex items-center px-4 py-2 hover:bg-surface-container-low text-sm font-medium text-primary" href="#">
+<span class="mr-2">🌱</span> Mada Idama (Lowland)
+                        </a>
+<a class="flex items-center px-4 py-2 hover:bg-surface-container-low text-sm font-medium" href="#">
+<span class="mr-2">⛰️</span> Kanda Watta (Upland)
+                        </a>
+<a class="flex items-center px-4 py-2 hover:bg-surface-container-low text-sm font-medium text-primary-container font-bold border-t border-outline-variant/10 mt-1" href="#">
+<span class="material-symbols-outlined text-sm mr-2" data-icon="add">add</span> Add New Land
+                        </a>
+</div>
+</div>
+<div class="relative hidden sm:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm" data-icon="search">search</span>
+<input class="bg-surface-container-highest border-none rounded-full pl-10 pr-4 py-2 text-sm w-48 focus:ring-2 focus:ring-primary/40 transition-all" placeholder="Search data..." type="text"/>
+</div>
+<button class="text-on-surface-variant hover:text-primary p-2 transition-colors active:scale-95 duration-150"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="text-on-surface-variant hover:text-primary p-2 transition-colors active:scale-95 duration-150"><span class="material-symbols-outlined" data-icon="language">language</span></button>
+<div class="relative dropdown">
+<button class="h-10 w-10 rounded-full overflow-hidden border-2 border-primary/20 shadow-sm active:scale-95 duration-150">
+<img alt="Nimal Perera" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbFDoZgT3eASe08VyMnDQop2g78rti6yAzyiwUp_4eydYBFJYkw0mp0pE_D7aegub6XHgkzKwdxdcNE5yrP2cmXnkjd-x_RWm_ud_bYPVgTGrr1uqiyqJfxdprVYFu-oeUTeSE4gQnS4mTCAbQdGRdaKMKfW32JiE8oBfQs8SPtr-ppqypj2ShEdH785UxwHrk9OLWvY9xfsZwwKCQbpXJ83XgXVW1CHsMXF2QaRXbDPVH_f27AFKiMig96ncV5krA7shjygevaCo"/>
+</button>
+<div class="dropdown-content absolute right-0 mt-2 w-56 bg-surface rounded-xl shadow-xl border border-outline-variant/20 py-2 z-[60]">
+<div class="px-4 py-3 border-b border-outline-variant/10">
+<p class="text-sm font-bold text-on-surface">Nimal Perera</p>
+<p class="text-xs text-on-surface-variant">nimal.p@agri-intel.lk</p>
+</div>
+<a class="flex items-center px-4 py-2 hover:bg-surface-container-low text-sm" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="account_circle">account_circle</span> My Profile
+                        </a>
+<a class="flex items-center px-4 py-2 hover:bg-surface-container-low text-sm" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="settings">settings</span> Account Settings
+                        </a>
+<a class="flex items-center px-4 py-2 hover:bg-surface-container-low text-sm border-t border-outline-variant/10 mt-1 text-error" href="#">
+<span class="material-symbols-outlined mr-3 text-lg" data-icon="logout">logout</span> Log Out
+                        </a>
+</div>
+</div>
+</div>
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<div class="p-8 max-w-screen-2xl mx-auto">
+<!-- Welcome Header -->
+<div class="mb-10 flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="max-w-2xl">
+<h2 class="text-4xl md:text-5xl font-headline font-black text-on-background tracking-tighter mb-2">Good morning, Perera</h2>
+<p class="text-on-surface-variant font-body text-lg leading-relaxed">Your Paddy fields in Anuradhapura are entering a critical hydration phase. Let's optimize your yields for this harvest cycle.</p>
+</div>
+<div class="flex gap-3">
+<button class="px-6 py-3 bg-surface-container-high text-on-background rounded-xl font-bold flex items-center gap-2 hover:bg-surface-container-highest transition-colors active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="bug_report">bug_report</span> Report Pest
+                </button>
+<button class="px-6 py-3 bg-gradient-to-r from-primary to-primary-container text-on-primary rounded-xl font-bold flex items-center gap-2 shadow-lg hover:opacity-90 transition-all active:scale-95">
+<span class="material-symbols-outlined text-lg" data-icon="opacity">opacity</span> Update Soil
+                </button>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="bento-grid">
+<!-- Weather Card -->
+<div class="col-span-12 lg:col-span-4 bg-tertiary-container rounded-[2rem] p-8 text-on-tertiary-container relative overflow-hidden flex flex-col justify-between h-[400px]">
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-8">
+<div>
+<p class="font-headline font-extrabold text-2xl tracking-tight">Dry Zone</p>
+<p class="font-body opacity-80">Anuradhapura District</p>
+</div>
+<span class="material-symbols-outlined text-5xl" data-icon="wb_sunny" style="font-variation-settings: 'FILL' 1;">wb_sunny</span>
+</div>
+<div class="mb-8">
+<span class="text-7xl font-headline font-black tracking-tighter">32°</span>
+<span class="text-2xl font-headline opacity-80">/ 26°</span>
+</div>
+</div>
+<div class="relative z-10 p-5 bg-white/10 backdrop-blur-xl rounded-2xl border border-white/20">
+<div class="flex items-center gap-3 text-white mb-1">
+<span class="material-symbols-outlined text-error" data-icon="warning" style="font-variation-settings: 'FILL' 1;">warning</span>
+<span class="font-headline font-bold">Heat Stress Alert</span>
+</div>
+<p class="text-xs opacity-90 leading-relaxed">Irrigation systems should be activated between 04:00 AM and 07:00 AM to prevent soil dehydration.</p>
+</div>
+<div class="absolute -right-20 -bottom-20 w-64 h-64 bg-primary-container/20 rounded-full blur-3xl"></div>
+</div>
+<!-- Farming Roadmap -->
+<div class="col-span-12 lg:col-span-8 bg-surface-container-low rounded-[2rem] p-8">
+<div class="flex justify-between items-center mb-10">
+<div>
+<h3 class="font-headline font-extrabold text-2xl tracking-tight text-on-background">Paddy Rice Roadmap</h3>
+<p class="text-on-surface-variant font-medium">Phase: Vegetative Stage • Week 4</p>
+</div>
+<div class="flex items-center gap-2 text-primary font-bold bg-primary-container/10 px-4 py-2 rounded-full text-sm">
+<span class="material-symbols-outlined text-sm" data-icon="check_circle">check_circle</span> 42% Complete
+                    </div>
+</div>
+<div class="relative flex flex-col md:flex-row justify-between gap-4">
+<div class="absolute top-6 left-6 right-6 h-1 bg-surface-container-highest hidden md:block"></div>
+<div class="relative z-10 flex flex-col items-center md:w-1/4">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center mb-4 shadow-lg ring-4 ring-background">
+<span class="material-symbols-outlined" data-icon="check">check</span>
+</div>
+<p class="font-headline font-bold text-sm text-center">Land Prep</p>
+</div>
+<div class="relative z-10 flex flex-col items-center md:w-1/4">
+<div class="w-12 h-12 bg-primary text-on-primary rounded-full flex items-center justify-center mb-4 shadow-lg ring-4 ring-background">
+<span class="material-symbols-outlined" data-icon="check">check</span>
+</div>
+<p class="font-headline font-bold text-sm text-center">Sowing</p>
+</div>
+<div class="relative z-10 flex flex-col items-center md:w-1/4">
+<div class="w-14 h-14 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-full flex items-center justify-center mb-4 shadow-xl ring-4 ring-white active:scale-95 cursor-pointer">
+<span class="material-symbols-outlined text-2xl" data-icon="grass" style="font-variation-settings: 'FILL' 1;">grass</span>
+</div>
+<p class="font-headline font-bold text-sm text-center text-primary">Fertilizer App</p>
+</div>
+<div class="relative z-10 flex flex-col items-center md:w-1/4">
+<div class="w-12 h-12 bg-surface-container-highest text-on-surface-variant rounded-full flex items-center justify-center mb-4 ring-4 ring-background">
+<span class="material-symbols-outlined" data-icon="psychiatry">psychiatry</span>
+</div>
+<p class="font-headline font-bold text-sm text-center text-on-surface-variant opacity-60">Pest Control</p>
+</div>
+</div>
+<div class="mt-12 bg-surface-container-lowest p-6 rounded-2xl shadow-sm border border-outline-variant/10">
+<div class="flex items-center justify-between mb-4">
+<h4 class="font-headline font-bold text-lg text-on-background">Weekly Task Protocol</h4>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Priority High</span>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="w-6 h-6 rounded-md border-2 border-outline-variant group-hover:border-primary transition-colors flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-primary opacity-0 group-hover:opacity-100" data-icon="check">check</span>
+</div>
+<span class="font-body text-on-surface text-sm">Apply Urea (Granular) before predicted rainfall tonight</span>
+</li>
+<li class="flex items-center gap-4 group cursor-pointer">
+<div class="w-6 h-6 rounded-md border-2 border-primary bg-primary/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-xs text-primary" data-icon="check">check</span>
+</div>
+<span class="font-body text-on-surface-variant text-sm line-through">Check irrigation levels in Sector B-04</span>
+</li>
+</ul>
+</div>
+</div>
+<!-- Market Pulse Card -->
+<div class="col-span-12 md:col-span-6 lg:col-span-4 bg-surface-container-highest rounded-[2rem] p-8 flex flex-col h-full">
+<h3 class="font-headline font-extrabold text-xl mb-6 text-on-background">Market Insights</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-2xl">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-secondary-container rounded-lg flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined" data-icon="rice_bowl">rice_bowl</span>
+</div>
+<div>
+<p class="font-headline font-bold text-sm">Keeri Samba</p>
+<p class="text-xs text-on-surface-variant">Avg. Wholesale</p>
+</div>
+</div>
+<div class="text-right">
+<p class="font-headline font-bold text-sm">Rs. 245.00</p>
+<p class="text-xs text-primary font-bold flex items-center justify-end gap-1">
+<span class="material-symbols-outlined text-xs" data-icon="arrow_upward">arrow_upward</span> 2.4%
+                            </p>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-3 text-primary font-bold text-sm border-2 border-primary/20 rounded-xl hover:bg-primary/5 transition-colors">View Price History</button>
+</div>
+<!-- Soil Vitality Card -->
+<div class="col-span-12 md:col-span-6 lg:col-span-8 bg-surface-container-low rounded-[2rem] p-8 overflow-hidden relative">
+<div class="flex flex-col md:flex-row gap-8 items-center h-full">
+<div class="md:w-1/3">
+<h3 class="font-headline font-extrabold text-xl mb-2 text-on-background">Soil Profile Vitality</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed mb-6">Last tested on Oct 24, 2024. Your soil organic carbon is within the optimal range.</p>
+<div class="space-y-4">
+<div class="flex justify-between items-end mb-1">
+<span class="text-xs font-bold uppercase tracking-wider text-on-surface-variant">Nitrogen</span>
+<span class="text-sm font-bold">7.2 pH</span>
+</div>
+<div class="w-full bg-surface-container-highest h-2 rounded-full">
+<div class="bg-primary h-full rounded-full" style="width: 75%;"></div>
+</div>
+</div>
+</div>
+<div class="md:w-2/3 h-48 md:h-full relative rounded-2xl overflow-hidden shadow-2xl">
+<img alt="Soil Layers" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAxndwyB8GTtHx83jmjATPBzxADzPFuw_Jt6KMhAjiXQj6PQ2FifkoP8b5slUTCqhCX8wLq0Ga1SZ8wXoSuUOQbYuE3Lo7mZ4ZIVqSQIVSujFwFs8GtbJDHfIR5drqU2Q0bXhg0eoThb-sQ20e_777xXiycgT1mCwzhJZlGjiAnfBJyeZy-kPDM1uE-lBpmK2ocyHX8jj-hUPsHogHNFBd2okpFH4V-oc9aFqh3OqWVVaewKXhGddThTmJao5vvYQedlrzvZ_a5yeo"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-background/60 to-transparent flex items-end p-6">
+<span class="text-white font-headline font-bold flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="biotech">biotech</span> Sensor Data: Sector A-02
+                            </span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-outline-variant/20 py-8 mt-12 bg-surface">
+<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-6">
+<p class="font-label text-xs uppercase tracking-widest text-on-surface-variant opacity-70">
+                © 2024 Fertile Canvas Sri Lanka. Tactile Intelligence.
+            </p>
+<nav class="flex flex-wrap justify-center gap-8">
+<a class="font-label text-xs uppercase tracking-widest text-on-surface-variant opacity-70 hover:opacity-100 hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="font-label text-xs uppercase tracking-widest text-on-surface-variant opacity-70 hover:opacity-100 hover:text-primary transition-all" href="#">Terms of Service</a>
+<a class="font-label text-xs uppercase tracking-widest text-on-surface-variant opacity-70 hover:opacity-100 hover:text-primary transition-all" href="#">Farmer Support</a>
+</nav>
+</div>
+</footer>
+</main>
+<!-- Mobile Navigation -->
+<nav class="md:hidden fixed bottom-6 left-6 right-6 h-16 bg-surface/80 backdrop-blur-xl rounded-2xl shadow-2xl z-50 flex items-center justify-around border border-white/20">
+<a class="flex flex-col items-center justify-center text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="map" style="font-variation-settings: 'FILL' 1;">map</span>
+<span class="text-[10px] font-bold mt-1 uppercase">Map</span>
+</a>
+<div class="relative -top-8">
+<button class="w-16 h-16 bg-primary text-on-primary rounded-full shadow-xl flex items-center justify-center ring-8 ring-background">
+<span class="material-symbols-outlined text-3xl" data-icon="add">add</span>
+</button>
+</div>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-[10px] font-bold mt-1 uppercase">Profile</span>
+</a>
+</nav>
+</body></html>
